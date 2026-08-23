@@ -1,0 +1,1270 @@
+<!DOCTYPE html>
+<html lang="en" dir="ltr">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Omar &amp; Raneem — We're Getting Married</title>
+<meta name="description" content="Join us as we celebrate the wedding of Omar &amp; Raneem — October 31st.">
+
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:wght@400;500;600;700&family=Great+Vibes&display=swap" rel="stylesheet">
+
+<style>
+/* ===========================================================
+   Omar & Raneem — Wedding Invitation
+   =========================================================== */
+
+:root {
+  --cream: #fdf8f3;
+  --cream-2: #f7ede4;
+  --charcoal: #2e2925;
+  --charcoal-soft: #4a423c;
+  --rose: #b3536b;
+  --rose-dark: #8f3f53;
+  --gold: #c9a15a;
+  --line: #e3d5c7;
+  --white: #ffffff;
+  --max-width: 1100px;
+  --radius: 14px;
+  --shadow: 0 10px 30px rgba(46, 41, 37, 0.08);
+  --footer-bg: #211b17;
+  --footer-text: #fdf8f3;
+}
+
+/* ---------- Dark mode (candlelit) ----------
+   Same rose/gold accents, glowing against a deep charcoal backdrop. */
+[data-theme="dark"] {
+  --cream: #17130f;
+  --cream-2: #1e1813;
+  --charcoal: #f3ece3;
+  --charcoal-soft: #c9beb2;
+  --rose: #d97690;
+  --rose-dark: #e8a3b5;
+  --gold: #dcb876;
+  --line: #3a322b;
+  --white: #241e19;
+  --shadow: 0 10px 30px rgba(0, 0, 0, 0.5);
+}
+
+* { box-sizing: border-box; }
+
+html { scroll-behavior: smooth; }
+
+body {
+  margin: 0;
+  background: var(--cream);
+  color: var(--charcoal);
+  font-family: 'Cormorant Garamond', 'Georgia', serif;
+  font-size: 18px;
+  line-height: 1.6;
+  overflow-x: hidden;
+  transition: background 0.3s ease, color 0.3s ease;
+}
+
+img { max-width: 100%; display: block; }
+
+a { color: inherit; }
+
+/* ---------- RTL (Arabic) ----------
+   Uses each device's own default Arabic system font rather than a
+   custom webfont, so Arabic text always looks native/familiar. */
+html[dir="rtl"] body,
+html[dir="rtl"] .section-title,
+html[dir="rtl"] .couple-names,
+html[dir="rtl"] .welcome-names,
+html[dir="rtl"] .footer-names,
+html[dir="rtl"] .closing-signature {
+  font-family: -apple-system, "Segoe UI", Tahoma, Arial, system-ui, sans-serif;
+}
+
+/* ---------- Welcome / Tap to Enter overlay ---------- */
+.welcome-overlay {
+  position: fixed;
+  inset: 0;
+  z-index: 200;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  text-align: center;
+  background:
+    radial-gradient(circle at 30% 20%, rgba(179,83,107,0.14), transparent 55%),
+    radial-gradient(circle at 80% 80%, rgba(201,161,90,0.16), transparent 55%),
+    var(--cream);
+  padding: 24px;
+  transition: opacity 0.6s ease, visibility 0.6s ease;
+}
+
+.welcome-overlay.hidden {
+  opacity: 0;
+  visibility: hidden;
+  pointer-events: none;
+}
+
+.welcome-content { max-width: 480px; }
+
+.welcome-eyebrow {
+  text-transform: uppercase;
+  letter-spacing: 0.2em;
+  font-size: 13px;
+  color: var(--rose-dark);
+  margin-bottom: 16px;
+}
+
+.welcome-names {
+  font-family: 'Great Vibes', cursive;
+  font-size: clamp(2.4rem, 9vw, 3.6rem);
+  margin: 0 0 34px;
+  color: var(--charcoal);
+}
+html[dir="rtl"] .welcome-names { font-size: clamp(1.9rem, 7vw, 2.8rem); }
+
+.welcome-names .amp {
+  font-family: 'Cormorant Garamond', serif;
+  font-style: italic;
+  color: var(--gold);
+  margin: 0 12px;
+}
+
+.welcome-prompt {
+  font-size: 0.95rem;
+  letter-spacing: 0.03em;
+  color: var(--charcoal-soft);
+  margin: 0 0 22px;
+}
+
+.lang-choice-grid {
+  display: flex;
+  gap: 16px;
+  flex-wrap: wrap;
+  justify-content: center;
+}
+
+.lang-choice-card {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 8px;
+  width: 190px;
+  padding: 30px 18px;
+  border-radius: var(--radius);
+  border: 1.5px solid var(--line);
+  background: var(--white);
+  box-shadow: var(--shadow);
+  cursor: pointer;
+  font-family: inherit;
+  transition: transform 0.2s ease, box-shadow 0.2s ease, border-color 0.2s ease, background 0.2s ease;
+}
+
+.lang-choice-card:hover,
+.lang-choice-card:focus-visible {
+  transform: translateY(-4px);
+  border-color: var(--rose);
+  background: var(--cream);
+  box-shadow: 0 14px 34px rgba(46, 41, 37, 0.14);
+  outline: none;
+}
+
+.lang-choice-icon {
+  font-size: 1.5rem;
+  margin-bottom: 2px;
+}
+
+.lang-choice-title {
+  font-size: 1.05rem;
+  font-weight: 600;
+  color: var(--charcoal);
+  letter-spacing: 0.01em;
+}
+
+.lang-choice-sub {
+  font-size: 1rem;
+  color: var(--rose-dark);
+}
+
+.lang-choice-sub[lang="ar"] {
+  font-family: -apple-system, "Segoe UI", Tahoma, Arial, system-ui, sans-serif;
+}
+
+.lang-choice-sub[lang="en"] {
+  font-family: 'Cormorant Garamond', serif;
+  font-style: italic;
+}
+
+@media (max-width: 460px) {
+  .lang-choice-card { width: 150px; padding: 24px 14px; }
+}
+
+/* ---------- Circular icon buttons (music, theme) ---------- */
+.icon-toggle {
+  width: 42px;
+  height: 42px;
+  border-radius: 50%;
+  border: 1px solid var(--line);
+  background: rgba(255,255,255,0.9);
+  color: var(--rose-dark);
+  font-size: 1.2rem;
+  cursor: pointer;
+  box-shadow: var(--shadow);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  transition: background 0.3s ease, border-color 0.3s ease;
+}
+
+[data-theme="dark"] .icon-toggle {
+  background: rgba(36, 30, 25, 0.9);
+}
+
+.music-toggle {
+  position: fixed;
+  top: 16px;
+  inset-inline-start: 16px;
+  z-index: 50;
+}
+
+.music-toggle.playing { animation: pulse 1.8s ease-in-out infinite; }
+
+@keyframes pulse {
+  0%, 100% { box-shadow: 0 0 0 0 rgba(179,83,107,0.35); }
+  50% { box-shadow: 0 0 0 8px rgba(179,83,107,0); }
+}
+
+/* ---------- Theme toggle icon swap ---------- */
+.theme-toggle .icon-moon { display: block; }
+.theme-toggle .icon-sun { display: none; }
+[data-theme="dark"] .theme-toggle .icon-moon { display: none; }
+[data-theme="dark"] .theme-toggle .icon-sun { display: block; }
+
+/* ---------- Top-right controls (theme + language) ---------- */
+.top-controls {
+  position: fixed;
+  top: 16px;
+  inset-inline-end: 16px;
+  z-index: 210;
+  display: flex;
+  align-items: center;
+  gap: 10px;
+}
+
+/* ---------- Language toggle ---------- */
+.lang-toggle {
+  background: rgba(255,255,255,0.85);
+  backdrop-filter: blur(6px);
+  border: 1px solid var(--line);
+  border-radius: 999px;
+  padding: 6px 10px;
+  display: flex;
+  align-items: center;
+  gap: 6px;
+  box-shadow: var(--shadow);
+  transition: background 0.3s ease, border-color 0.3s ease;
+}
+
+[data-theme="dark"] .lang-toggle {
+  background: rgba(36, 30, 25, 0.85);
+}
+
+.lang-btn {
+  border: none;
+  background: transparent;
+  font-family: inherit;
+  font-size: 14px;
+  letter-spacing: 0.05em;
+  padding: 4px 8px;
+  border-radius: 999px;
+  cursor: pointer;
+  color: var(--charcoal-soft);
+}
+
+.lang-btn.active {
+  background: var(--rose);
+  color: var(--white);
+}
+
+.lang-sep { color: var(--line); font-size: 12px; }
+
+/* ---------- Buttons ---------- */
+.btn {
+  display: inline-block;
+  padding: 12px 28px;
+  border-radius: 999px;
+  text-decoration: none;
+  font-size: 16px;
+  letter-spacing: 0.04em;
+  cursor: pointer;
+  border: 1.5px solid transparent;
+  transition: transform 0.2s ease, box-shadow 0.2s ease, background 0.2s ease, color 0.2s ease;
+  font-family: inherit;
+}
+
+.btn-primary {
+  background: var(--rose);
+  color: var(--white);
+}
+.btn-primary:hover { background: var(--rose-dark); transform: translateY(-2px); box-shadow: var(--shadow); }
+
+.btn-outline {
+  background: transparent;
+  border-color: var(--rose);
+  color: var(--rose-dark);
+  margin-top: 10px;
+}
+.btn-outline:hover { background: var(--rose); color: var(--white); }
+
+/* ---------- Hero ---------- */
+.hero {
+  position: relative;
+  min-height: 100svh;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  text-align: center;
+  padding: 100px 20px 60px;
+  background:
+    radial-gradient(circle at 30% 20%, rgba(179,83,107,0.10), transparent 55%),
+    radial-gradient(circle at 80% 80%, rgba(201,161,90,0.12), transparent 55%),
+    var(--cream);
+  overflow: hidden;
+}
+
+.hero::before,
+.hero::after {
+  content: "";
+  position: absolute;
+  border: 1px solid var(--line);
+  border-radius: 50%;
+}
+.hero::before { width: 480px; height: 480px; top: -140px; inset-inline-start: -140px; }
+.hero::after { width: 360px; height: 360px; bottom: -120px; inset-inline-end: -120px; }
+
+.hero-content { position: relative; z-index: 2; max-width: 640px; }
+
+.eyebrow {
+  text-transform: uppercase;
+  letter-spacing: 0.25em;
+  font-size: 13px;
+  color: var(--rose-dark);
+  margin-bottom: 14px;
+}
+
+.couple-names {
+  font-family: 'Great Vibes', cursive;
+  font-weight: 400;
+  font-size: clamp(3rem, 10vw, 5.5rem);
+  color: var(--charcoal);
+  margin: 0 0 10px;
+  line-height: 1.15;
+}
+html[dir="rtl"] .couple-names { font-size: clamp(2.4rem, 8vw, 4rem); }
+
+.couple-names .amp {
+  font-family: 'Cormorant Garamond', serif;
+  font-style: italic;
+  color: var(--gold);
+  margin: 0 14px;
+  font-size: 0.6em;
+}
+
+.hero-tagline {
+  font-size: clamp(1.5rem, 4vw, 2.2rem);
+  font-weight: 600;
+  font-style: italic;
+  letter-spacing: 0.02em;
+  color: var(--rose-dark);
+  margin: 0 0 20px;
+}
+
+.hero-date {
+  font-size: 1.4rem;
+  letter-spacing: 0.06em;
+  color: var(--charcoal-soft);
+  margin: 0 0 40px;
+}
+
+.countdown {
+  display: flex;
+  justify-content: center;
+  gap: 14px;
+  flex-wrap: wrap;
+  margin-bottom: 40px;
+}
+
+.countdown-item {
+  background: var(--white);
+  border: 1px solid var(--line);
+  border-radius: var(--radius);
+  padding: 14px 16px;
+  min-width: 78px;
+  box-shadow: var(--shadow);
+}
+
+.countdown-number {
+  display: block;
+  font-size: 2rem;
+  font-weight: 600;
+  color: var(--rose-dark);
+  font-family: 'Cormorant Garamond', serif;
+}
+
+.countdown-label {
+  display: block;
+  font-size: 0.75rem;
+  text-transform: uppercase;
+  letter-spacing: 0.1em;
+  color: var(--charcoal-soft);
+  margin-top: 2px;
+}
+
+.scroll-cue {
+  position: absolute;
+  bottom: 24px;
+  left: 50%;
+  transform: translateX(-50%);
+  font-size: 1.4rem;
+  color: var(--rose-dark);
+  text-decoration: none;
+  animation: bob 2.2s ease-in-out infinite;
+}
+@keyframes bob {
+  0%, 100% { transform: translate(-50%, 0); }
+  50% { transform: translate(-50%, 8px); }
+}
+
+/* ---------- Sections ---------- */
+.section {
+  max-width: var(--max-width);
+  margin: 0 auto;
+  padding: 90px 24px;
+  text-align: center;
+}
+
+.section-eyebrow {
+  text-transform: uppercase;
+  letter-spacing: 0.25em;
+  font-size: 13px;
+  color: var(--rose-dark);
+  margin-bottom: 10px;
+}
+
+.section-title {
+  font-size: clamp(1.9rem, 4vw, 2.6rem);
+  font-weight: 600;
+  margin: 0 0 46px;
+  color: var(--charcoal);
+}
+
+/* ---------- Details ---------- */
+.details-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+  gap: 24px;
+}
+
+.detail-card {
+  background: var(--white);
+  border: 1px solid var(--line);
+  border-radius: var(--radius);
+  padding: 34px 24px;
+  box-shadow: var(--shadow);
+}
+
+.detail-icon {
+  margin-bottom: 14px;
+  color: var(--rose-dark);
+}
+
+.detail-icon svg {
+  width: 30px;
+  height: 30px;
+}
+
+.detail-icon.emoji-icon {
+  font-size: 1.8rem;
+  line-height: 1;
+}
+
+.detail-card h3 {
+  margin: 0 0 8px;
+  font-size: 1.2rem;
+  letter-spacing: 0.04em;
+  color: var(--rose-dark);
+}
+
+.detail-card p { margin: 4px 0; color: var(--charcoal-soft); }
+
+.detail-note {
+  font-size: 0.85rem;
+  font-style: italic;
+  opacity: 0.8;
+  margin-top: 8px !important;
+}
+
+/* ---------- Map ---------- */
+.map-section { background: var(--cream-2); max-width: 100%; }
+.map-wrap {
+  max-width: var(--max-width);
+  margin: 0 auto 24px;
+  border-radius: var(--radius);
+  overflow: hidden;
+  box-shadow: var(--shadow);
+  border: 1px solid var(--line);
+}
+.map-wrap iframe {
+  width: 100%;
+  height: 380px;
+  border: 0;
+  display: block;
+}
+
+/* ---------- Gallery: a slow, continuous flow of memories ---------- */
+.gallery-flow {
+  width: 100%;
+  overflow: hidden;
+  direction: ltr;
+  -webkit-mask-image: linear-gradient(to right, transparent, black 8%, black 92%, transparent);
+  mask-image: linear-gradient(to right, transparent, black 8%, black 92%, transparent);
+}
+
+.gallery-track {
+  display: flex;
+  gap: 18px;
+  width: max-content;
+  animation: gallery-scroll 140s linear infinite;
+}
+
+.gallery-track:hover {
+  animation-play-state: paused;
+}
+
+@keyframes gallery-scroll {
+  from { transform: translateX(0); }
+  to { transform: translateX(-50%); }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .gallery-track { animation: none; }
+  .gallery-flow { overflow-x: auto; }
+}
+
+.gallery-item {
+  flex: 0 0 auto;
+  width: 220px;
+  height: 280px;
+  border-radius: var(--radius);
+  overflow: hidden;
+  box-shadow: var(--shadow);
+  background: var(--cream-2);
+}
+
+.gallery-item img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  display: block;
+}
+
+.story-text {
+  max-width: 640px;
+  margin: 0 auto 18px;
+  color: var(--charcoal-soft);
+  font-size: 1.15rem;
+  line-height: 1.75;
+}
+
+.story-text:last-of-type {
+  margin-bottom: 46px;
+}
+
+.gallery-hint {
+  margin-top: 20px;
+  font-size: 0.9rem;
+  color: var(--charcoal-soft);
+  opacity: 0.75;
+}
+
+/* ---------- RSVP ---------- */
+.rsvp { background: var(--white); max-width: 100%; }
+.rsvp-sub { color: var(--charcoal-soft); margin-bottom: 36px; }
+
+.rsvp-form {
+  max-width: 520px;
+  margin: 0 auto;
+  text-align: start;
+  background: var(--cream);
+  border: 1px solid var(--line);
+  border-radius: var(--radius);
+  padding: 32px;
+  box-shadow: var(--shadow);
+}
+
+.form-row { margin-bottom: 20px; }
+
+.form-row label {
+  display: block;
+  font-size: 0.95rem;
+  letter-spacing: 0.03em;
+  color: var(--charcoal-soft);
+  margin-bottom: 6px;
+}
+
+.form-row input[type="text"],
+.form-row input[type="email"],
+.form-row select,
+.form-row textarea {
+  width: 100%;
+  padding: 11px 14px;
+  border: 1px solid var(--line);
+  border-radius: 8px;
+  font-family: inherit;
+  font-size: 1rem;
+  background: var(--white);
+  color: var(--charcoal);
+}
+
+.form-row input:focus,
+.form-row select:focus,
+.form-row textarea:focus {
+  outline: none;
+  border-color: var(--rose);
+}
+
+.radio-group { display: flex; gap: 20px; flex-wrap: wrap; }
+.radio-label { display: flex; align-items: center; gap: 8px; font-size: 1rem; margin: 0; }
+.radio-label input { width: auto; }
+
+.rsvp-form .btn { width: 100%; text-align: center; }
+
+.rsvp-status {
+  margin-top: 14px;
+  font-size: 0.95rem;
+  text-align: center;
+  color: var(--rose-dark);
+  min-height: 1.2em;
+}
+
+/* ---------- Closing note ---------- */
+.closing {
+  background: var(--cream-2);
+  max-width: 100%;
+}
+
+.closing-inner {
+  max-width: 640px;
+  margin: 0 auto;
+}
+
+.closing-text {
+  font-size: 1.1rem;
+  line-height: 1.8;
+  color: var(--charcoal);
+  margin: 0 0 22px;
+}
+
+.closing-signature {
+  font-family: 'Great Vibes', cursive;
+  font-weight: 400;
+  font-size: clamp(2rem, 5.5vw, 2.6rem);
+  color: var(--rose-dark);
+  margin: 0;
+  white-space: nowrap;
+}
+@media (max-width: 480px) {
+  .closing-signature { white-space: normal; }
+}
+html[dir="rtl"] .closing-signature { font-size: clamp(1.6rem, 5vw, 2.2rem); font-weight: 600; }
+
+/* ---------- Footer ---------- */
+.footer {
+  text-align: center;
+  padding: 50px 24px 40px;
+  background: var(--footer-bg);
+  color: var(--footer-text);
+}
+
+.footer-names {
+  font-family: 'Great Vibes', cursive;
+  font-size: 2rem;
+  margin: 0 0 6px;
+}
+html[dir="rtl"] .footer-names { font-size: 1.5rem; }
+
+.footer-tag { font-size: 0.9rem; opacity: 0.75; margin: 0; }
+
+/* ---------- Responsive ---------- */
+@media (max-width: 640px) {
+  body { font-size: 17px; }
+  .section { padding: 64px 18px; }
+  .gallery-item { width: 160px; height: 210px; }
+  .countdown-item { min-width: 66px; padding: 10px 12px; }
+  .countdown-number { font-size: 1.5rem; }
+  .rsvp-form { padding: 24px 18px; }
+}
+
+@media (max-width: 400px) {
+  .gallery-item { width: 140px; height: 185px; }
+  .countdown { gap: 10px; }
+}
+</style>
+</head>
+<body>
+
+<!-- WELCOME / TAP TO ENTER -->
+<div class="welcome-overlay" id="welcome-overlay">
+  <div class="welcome-content">
+    <p class="welcome-eyebrow">You're Invited &nbsp;&middot;&nbsp; أنتم مدعوون</p>
+    <h2 class="welcome-names">
+      <span>Omar</span>
+      <span class="amp">&amp;</span>
+      <span>Raneem</span>
+    </h2>
+    <p class="welcome-prompt">Choose your language &nbsp;&middot;&nbsp; اختر لغتك</p>
+    <div class="lang-choice-grid">
+      <button type="button" class="lang-choice-card" id="choice-ar" data-lang="ar">
+        <span class="lang-choice-icon" aria-hidden="true">&#10084;&#65039;</span>
+        <span class="lang-choice-title" lang="ar" dir="rtl">الدعوة بالعربية</span>
+        <span class="lang-choice-sub" lang="ar" dir="rtl">عمر و رنيم</span>
+      </button>
+      <button type="button" class="lang-choice-card" id="choice-en" data-lang="en">
+        <span class="lang-choice-icon" aria-hidden="true">&#10084;&#65039;</span>
+        <span class="lang-choice-title" lang="en" dir="ltr">English Invitation</span>
+        <span class="lang-choice-sub" lang="en" dir="ltr">Omar &amp; Raneem</span>
+      </button>
+    </div>
+  </div>
+</div>
+
+<audio id="bg-music" src="song.mp3" loop preload="none"></audio>
+<button type="button" id="music-toggle" class="music-toggle icon-toggle" aria-label="Toggle music" data-i18n-aria="music.toggle" hidden>&#9835;</button>
+
+<!-- Theme + language controls -->
+<div class="top-controls">
+  <button type="button" id="theme-toggle" class="icon-toggle theme-toggle" aria-label="Toggle dark mode">
+    <svg class="icon-moon" viewBox="0 0 24 24" width="18" height="18" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round">
+      <path d="M20 14.5A8.5 8.5 0 1 1 9.5 4a6.5 6.5 0 0 0 10.5 10.5z"></path>
+    </svg>
+    <svg class="icon-sun" viewBox="0 0 24 24" width="18" height="18" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round">
+      <circle cx="12" cy="12" r="4.2"></circle>
+      <line x1="12" y1="2.5" x2="12" y2="5"></line>
+      <line x1="12" y1="19" x2="12" y2="21.5"></line>
+      <line x1="4.2" y1="4.2" x2="6" y2="6"></line>
+      <line x1="18" y1="18" x2="19.8" y2="19.8"></line>
+      <line x1="2.5" y1="12" x2="5" y2="12"></line>
+      <line x1="19" y1="12" x2="21.5" y2="12"></line>
+      <line x1="4.2" y1="19.8" x2="6" y2="18"></line>
+      <line x1="18" y1="6" x2="19.8" y2="4.2"></line>
+    </svg>
+  </button>
+  <div class="lang-toggle">
+    <button type="button" id="lang-en" class="lang-btn active" data-lang="en">EN</button>
+    <span class="lang-sep">/</span>
+    <button type="button" id="lang-ar" class="lang-btn" data-lang="ar">AR</button>
+  </div>
+</div>
+
+<!-- HERO -->
+<header class="hero" id="home">
+  <div class="hero-overlay"></div>
+  <div class="hero-content">
+    <p class="eyebrow" data-i18n="hero.eyebrow">We're getting married</p>
+    <h1 class="couple-names">
+      <span data-i18n="hero.name1">Omar</span>
+      <span class="amp">&amp;</span>
+      <span data-i18n="hero.name2">Raneem</span>
+    </h1>
+    <p class="hero-tagline" data-i18n="hero.tagline">Over a Decade of Loving You</p>
+    <p class="hero-date" data-i18n="hero.date">October 31, 2026</p>
+
+    <div class="countdown" id="countdown" aria-live="polite">
+      <div class="countdown-item">
+        <span class="countdown-number" id="cd-days">00</span>
+        <span class="countdown-label" data-i18n="countdown.days">Days</span>
+      </div>
+      <div class="countdown-item">
+        <span class="countdown-number" id="cd-hours">00</span>
+        <span class="countdown-label" data-i18n="countdown.hours">Hours</span>
+      </div>
+      <div class="countdown-item">
+        <span class="countdown-number" id="cd-mins">00</span>
+        <span class="countdown-label" data-i18n="countdown.mins">Minutes</span>
+      </div>
+      <div class="countdown-item">
+        <span class="countdown-number" id="cd-secs">00</span>
+        <span class="countdown-label" data-i18n="countdown.secs">Seconds</span>
+      </div>
+    </div>
+
+    <a href="#rsvp" class="btn btn-primary" data-i18n="hero.cta">RSVP Now</a>
+  </div>
+  <a href="#details" class="scroll-cue" aria-label="Scroll down">&#8595;</a>
+</header>
+
+<!-- DETAILS -->
+<section class="section details" id="details">
+  <p class="section-eyebrow" data-i18n="details.eyebrow">The Celebration</p>
+  <h2 class="section-title" data-i18n="details.title">Wedding Day Details</h2>
+
+  <div class="details-grid">
+    <div class="detail-card">
+      <div class="detail-icon" aria-hidden="true">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round">
+          <rect x="3" y="5" width="18" height="16" rx="2.5"></rect>
+          <line x1="3" y1="9.5" x2="21" y2="9.5"></line>
+          <line x1="7.5" y1="3" x2="7.5" y2="7"></line>
+          <line x1="16.5" y1="3" x2="16.5" y2="7"></line>
+          <line x1="7.5" y1="13.5" x2="7.5" y2="13.5"></line>
+          <line x1="12" y1="13.5" x2="12" y2="13.5"></line>
+          <line x1="16.5" y1="13.5" x2="16.5" y2="13.5"></line>
+        </svg>
+      </div>
+      <h3 data-i18n="details.dateTitle">Date</h3>
+      <p data-i18n="details.dateValue">Saturday, October 31, 2026</p>
+      <p data-i18n="details.timeValue">2:00 PM – 6:00 PM</p>
+    </div>
+    <div class="detail-card">
+      <div class="detail-icon" aria-hidden="true">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round">
+          <path d="M12 21s-7-7.4-7-12.4a7 7 0 0 1 14 0C19 13.6 12 21 12 21z"></path>
+          <circle cx="12" cy="8.6" r="2.6"></circle>
+        </svg>
+      </div>
+      <h3 data-i18n="details.venueTitle">Venue</h3>
+      <p data-i18n="details.venueValue">Tia-Vie, El Shorouk</p>
+      <p class="detail-note" data-i18n="details.venueAddress">3FPH+9Q, El Shorouk, Cairo Governorate 4751104, Egypt</p>
+      <a href="https://maps.app.goo.gl/fqBJK3KFMNidch3w9" target="_blank" rel="noopener" class="btn btn-outline" data-i18n="details.directions">Get Directions</a>
+    </div>
+    <div class="detail-card">
+      <div class="detail-icon emoji-icon" aria-hidden="true">&#128084;</div>
+      <h3 data-i18n="details.dressTitle">Dress Code</h3>
+      <p data-i18n="details.dressValue">Formal Attire</p>
+      <p class="detail-note" data-i18n="details.dressNote">Please avoid beige — reserved for the groom</p>
+    </div>
+    <div class="detail-card">
+      <div class="detail-icon emoji-icon" aria-hidden="true">&#128118;&#127995;</div>
+      <h3 data-i18n="details.kidsTitle">Little Ones</h3>
+      <p data-i18n="details.kidsValue">As much as we adore your little ones, we kindly ask that this celebration be reserved for adults</p>
+    </div>
+  </div>
+</section>
+
+<!-- MAP -->
+<section class="section map-section" id="venue">
+  <p class="section-eyebrow" data-i18n="map.eyebrow">Find Us</p>
+  <h2 class="section-title" data-i18n="map.title">Tia-Vie, El Shorouk</h2>
+  <div class="map-wrap">
+    <iframe
+      title="Venue location map"
+      src="https://www.google.com/maps?q=Tia-Vie+3FPH%2B9Q+El+Shorouk+Cairo+Governorate+Egypt&output=embed"
+      loading="lazy"
+      referrerpolicy="no-referrer-when-downgrade">
+    </iframe>
+  </div>
+  <a href="https://maps.app.goo.gl/fqBJK3KFMNidch3w9" target="_blank" rel="noopener" class="btn btn-primary" data-i18n="map.cta">Open in Google Maps</a>
+</section>
+
+<!-- GALLERY -->
+<section class="section gallery" id="gallery">
+  <p class="section-eyebrow" data-i18n="gallery.eyebrow">Our Story</p>
+  <h2 class="section-title" data-i18n="gallery.title">Moments Together</h2>
+  <p class="story-text" data-i18n="gallery.story1">Loving you has always felt easy. From day one, it felt right. After all these years, it's hard to believe we're finally here, ready to share our story and begin a whole new chapter, together.</p>
+  <p class="story-text" data-i18n="gallery.story2">It was always you. It always has been, and it always will be. We've gone through it all, and we'd go through it all again, a thousand times over, because that's just who we are. Here's to thirteen years of love and laughter, and to many more still to come, for eternity.</p>
+  <div class="gallery-flow">
+    <div class="gallery-track" id="gallery-track">
+      <div class="gallery-item"><img src="photo-01.jpg" alt="Omar and Raneem" loading="lazy"></div>
+      <div class="gallery-item"><img src="photo-02.jpg" alt="Omar and Raneem" loading="lazy"></div>
+      <div class="gallery-item"><img src="photo-03.jpg" alt="Omar and Raneem" loading="lazy"></div>
+      <div class="gallery-item"><img src="photo-04.jpg" alt="Omar and Raneem" loading="lazy"></div>
+      <div class="gallery-item"><img src="photo-05.jpg" alt="Omar and Raneem" loading="lazy"></div>
+      <div class="gallery-item"><img src="photo-06.jpg" alt="Omar and Raneem" loading="lazy"></div>
+      <div class="gallery-item"><img src="photo-07.jpg" alt="Omar and Raneem" loading="lazy"></div>
+      <div class="gallery-item"><img src="photo-08.jpg" alt="Omar and Raneem" loading="lazy"></div>
+      <div class="gallery-item"><img src="photo-09.jpg" alt="Omar and Raneem" loading="lazy"></div>
+      <div class="gallery-item"><img src="photo-10.jpg" alt="Omar and Raneem" loading="lazy"></div>
+      <div class="gallery-item"><img src="photo-11.jpg" alt="Omar and Raneem" loading="lazy"></div>
+      <div class="gallery-item"><img src="photo-12.jpg" alt="Omar and Raneem" loading="lazy"></div>
+      <div class="gallery-item"><img src="photo-13.jpg" alt="Omar and Raneem" loading="lazy"></div>
+      <div class="gallery-item"><img src="photo-14.jpg" alt="Omar and Raneem" loading="lazy"></div>
+      <div class="gallery-item"><img src="photo-15.jpg" alt="Omar and Raneem" loading="lazy"></div>
+      <div class="gallery-item"><img src="photo-16.jpg" alt="Omar and Raneem" loading="lazy"></div>
+      <div class="gallery-item"><img src="photo-17.jpg" alt="Omar and Raneem" loading="lazy"></div>
+      <div class="gallery-item"><img src="photo-18.jpg" alt="Omar and Raneem" loading="lazy"></div>
+      <div class="gallery-item"><img src="photo-19.jpg" alt="Omar and Raneem" loading="lazy"></div>
+      <div class="gallery-item"><img src="photo-20.jpg" alt="Omar and Raneem" loading="lazy"></div>
+      <div class="gallery-item"><img src="photo-21.jpg" alt="Omar and Raneem" loading="lazy"></div>
+      <div class="gallery-item"><img src="photo-22.jpg" alt="Omar and Raneem" loading="lazy"></div>
+      <div class="gallery-item"><img src="photo-23.jpg" alt="Omar and Raneem" loading="lazy"></div>
+      <div class="gallery-item"><img src="photo-24.jpg" alt="Omar and Raneem" loading="lazy"></div>
+      <div class="gallery-item"><img src="photo-25.jpg" alt="Omar and Raneem" loading="lazy"></div>
+    </div>
+  </div>
+</section>
+
+<!-- RSVP -->
+<section class="section rsvp" id="rsvp">
+  <p class="section-eyebrow" data-i18n="rsvp.eyebrow">Join Us</p>
+  <h2 class="section-title" data-i18n="rsvp.title">RSVP</h2>
+  <p class="rsvp-sub" data-i18n="rsvp.sub">Kindly respond by October 10, 2026</p>
+
+  <form id="rsvp-form" class="rsvp-form" action="https://formspree.io/f/mnparrqq" method="POST">
+    <div class="form-row">
+      <label for="fullname" data-i18n="rsvp.name">Full Name</label>
+      <input type="text" id="fullname" name="name" required>
+    </div>
+
+    <div class="form-row">
+      <label for="email" data-i18n="rsvp.email">Email (optional)</label>
+      <input type="email" id="email" name="email">
+    </div>
+
+    <div class="form-row">
+      <label data-i18n="rsvp.attending">Will you attend?</label>
+      <div class="radio-group">
+        <label class="radio-label">
+          <input type="radio" name="attending" value="Joyfully Accepts" required>
+          <span data-i18n="rsvp.yes">Joyfully Accepts</span>
+        </label>
+        <label class="radio-label">
+          <input type="radio" name="attending" value="Regretfully Declines" required>
+          <span data-i18n="rsvp.no">Regretfully Declines</span>
+        </label>
+      </div>
+    </div>
+
+    <div class="form-row">
+      <label for="message" data-i18n="rsvp.message">Message (optional)</label>
+      <textarea id="message" name="message" rows="3"></textarea>
+    </div>
+
+    <button type="submit" class="btn btn-primary" data-i18n="rsvp.submit">Send RSVP</button>
+    <p class="rsvp-status" id="rsvp-status" role="status"></p>
+  </form>
+</section>
+
+<!-- CLOSING NOTE -->
+<section class="section closing">
+  <div class="closing-inner">
+    <p class="closing-text" data-i18n="closing.text">To everyone who has been part of our journey — thank you for the love, the laughter, and the memories along the way. We can't wait to celebrate this next chapter with you by our side.</p>
+    <p class="closing-signature" data-i18n="closing.signature">With love, Omar and Raneem</p>
+  </div>
+</section>
+
+<!-- FOOTER -->
+<footer class="footer">
+  <p class="footer-names">
+    <span data-i18n="hero.name1">Omar</span> <span class="amp">&amp;</span> <span data-i18n="hero.name2">Raneem</span>
+  </p>
+  <p class="footer-tag" data-i18n="footer.tag">Thank you for being part of our story</p>
+</footer>
+
+<script>
+(function () {
+  "use strict";
+
+  /* =========================================================
+     1. TRANSLATIONS
+     ========================================================= */
+  var translations = {
+    en: {
+      "hero.eyebrow": "We're getting married",
+      "hero.name1": "Omar",
+      "hero.name2": "Raneem",
+      "hero.tagline": "Over a Decade of Loving You",
+      "hero.date": "October 31, 2026",
+      "hero.cta": "RSVP Now",
+      "countdown.days": "Days",
+      "countdown.hours": "Hours",
+      "countdown.mins": "Minutes",
+      "countdown.secs": "Seconds",
+      "details.eyebrow": "The Celebration",
+      "details.title": "Wedding Day Details",
+      "details.dateTitle": "Date",
+      "details.dateValue": "Saturday, October 31, 2026",
+      "details.timeValue": "2:00 PM – 6:00 PM",
+      "details.venueTitle": "Venue",
+      "details.venueValue": "Tia-Vie, El Shorouk",
+      "details.venueAddress": "3FPH+9Q, El Shorouk, Cairo Governorate 4751104, Egypt",
+      "details.directions": "Get Directions",
+      "details.dressTitle": "Dress Code",
+      "details.dressValue": "Formal Attire",
+      "details.dressNote": "Please avoid beige — reserved for the groom",
+      "details.kidsTitle": "Little Ones",
+      "details.kidsValue": "As much as we adore your little ones, we kindly ask that this celebration be reserved for adults",
+      "welcome.eyebrow": "You're invited to the wedding of",
+      "welcome.enter": "Tap to Enter",
+      "music.toggle": "Toggle music",
+      "map.eyebrow": "Find Us",
+      "map.title": "Tia-Vie, El Shorouk",
+      "map.cta": "Open in Google Maps",
+      "gallery.eyebrow": "Our Story",
+      "gallery.title": "Moments Together",
+      "gallery.story1": "Loving you has always felt easy. From day one, it felt right. After all these years, it's hard to believe we're finally here, ready to share our story and begin a whole new chapter, together.",
+      "gallery.story2": "It was always you. It always has been, and it always will be. We've gone through it all, and we'd go through it all again, a thousand times over, because that's just who we are. Here's to thirteen years of love and laughter, and to many more still to come, for eternity.",
+      "gallery.placeholder": "Add your photo",
+      "gallery.hint": "(Replace these placeholders with your own photos in the images/ folder — see README.)",
+      "rsvp.eyebrow": "Join Us",
+      "rsvp.title": "RSVP",
+      "rsvp.sub": "Kindly respond by October 10, 2026",
+      "rsvp.name": "Full Name",
+      "rsvp.email": "Email (optional)",
+      "rsvp.attending": "Will you attend?",
+      "rsvp.yes": "Joyfully Accepts",
+      "rsvp.no": "Regretfully Declines",
+      "rsvp.message": "Message (optional)",
+      "rsvp.submit": "Send RSVP",
+      "rsvp.sending": "Sending…",
+      "rsvp.success": "Thank you! Your RSVP has been received.",
+      "rsvp.error": "Something went wrong. Please try again or contact us directly.",
+      "rsvp.notConfigured": "RSVP form isn't connected yet — add your Formspree ID in index.html.",
+      "closing.text": "To everyone who has been part of our journey — thank you for the love, the laughter, and the memories along the way. We can't wait to celebrate this next chapter with you by our side.",
+      "closing.signature": "With love, Omar and Raneem",
+      "footer.tag": "Thank you for being part of our story"
+    },
+    ar: {
+      "hero.eyebrow": "نحن على وشك الزواج",
+      "hero.name1": "عمر",
+      "hero.name2": "رنيم",
+      "hero.tagline": "أكثر من عقدٍ من الحب",
+      "hero.date": "31 أكتوبر 2026",
+      "hero.cta": "أكد حضورك",
+      "countdown.days": "يوم",
+      "countdown.hours": "ساعة",
+      "countdown.mins": "دقيقة",
+      "countdown.secs": "ثانية",
+      "details.eyebrow": "الاحتفال",
+      "details.title": "تفاصيل يوم الزفاف",
+      "details.dateTitle": "التاريخ",
+      "details.dateValue": "السبت، ٣١ أكتوبر ٢٠٢٦",
+      "details.timeValue": "٢:٠٠ مساءً – ٦:٠٠ مساءً",
+      "details.venueTitle": "المكان",
+      "details.venueValue": "تيا في، الشروق",
+      "details.venueAddress": "3FPH+9Q، الشروق، محافظة القاهرة 4751104، مصر",
+      "details.directions": "الاتجاهات",
+      "details.dressTitle": "الزي المطلوب",
+      "details.dressValue": "ملابس رسمية",
+      "details.dressNote": "يرجى تجنب اللون البيج — مخصص للعريس",
+      "details.kidsTitle": "الأطفال",
+      "details.kidsValue": "نعتز بأطفالكم كثيراً، ونرجو تفهمكم أن يكون هذا الاحتفال خاصاً بالكبار فقط",
+      "welcome.eyebrow": "أنتم مدعوون لحضور زفاف",
+      "welcome.enter": "اضغط للدخول",
+      "music.toggle": "تشغيل/إيقاف الموسيقى",
+      "map.eyebrow": "موقعنا",
+      "map.title": "تيا في، الشروق",
+      "map.cta": "فتح في خرائط جوجل",
+      "gallery.eyebrow": "قصتنا",
+      "gallery.title": "لحظات معاً",
+      "gallery.story1": "حبك من أول يوم كان سهل، وحسّينا إنه هو الصح. مش مصدقين إن كل السنين دي عدّت وإحنا لسه هنا، هنحكي قصتنا ونفتح صفحة جديدة من حياتنا مع بعض.",
+      "gallery.story2": "كان دايماً إنت... من الأول وهيفضل كده لحد الأبد. عدّينا كل حاجة مع بعض، ولو اتخيرنا تاني كنا هنعديها من جديد ألف مرة، لأن ده إحنا وبس. يلا نقول: تلتاشر سنة حب وضحك، وعقبال سنين وسنين لحد الأبد.",
+      "gallery.placeholder": "أضف صورتك",
+      "gallery.hint": "(استبدل هذه الأماكن بصورك الخاصة داخل مجلد images/ — راجع README)",
+      "rsvp.eyebrow": "شاركونا",
+      "rsvp.title": "تأكيد الحضور",
+      "rsvp.sub": "يرجى الرد قبل ١٠ أكتوبر ٢٠٢٦",
+      "rsvp.name": "الاسم الكامل",
+      "rsvp.email": "البريد الإلكتروني (اختياري)",
+      "rsvp.attending": "هل ستحضر؟",
+      "rsvp.yes": "أوافق بكل سرور",
+      "rsvp.no": "أعتذر، لن أتمكن",
+      "rsvp.message": "رسالة (اختياري)",
+      "rsvp.submit": "إرسال",
+      "rsvp.sending": "جاري الإرسال…",
+      "rsvp.success": "شكراً لك! تم استلام تأكيدك.",
+      "rsvp.error": "حدث خطأ ما. يرجى المحاولة مرة أخرى أو التواصل معنا مباشرة.",
+      "rsvp.notConfigured": "نموذج تأكيد الحضور غير مفعّل بعد — أضف معرف Formspree في index.html.",
+      "closing.text": "لكل اللي كانوا معانا في الرحلة دي، شكراً على الحب والضحك والذكريات اللي عملناها مع بعض. مستنيين نحتفل بالفصل الجديد ده وانتوا حوالينا.",
+      "closing.signature": "بكل الحب، عمر ورنيم",
+      "footer.tag": "شكراً لكونك جزءاً من قصتنا"
+    }
+  };
+
+  /* =========================================================
+     1b. DARK MODE
+     Manual toggle only — defaults to light regardless of the
+     guest's system setting, remembers their choice via localStorage.
+     ========================================================= */
+  var themeToggle = document.getElementById("theme-toggle");
+
+  function applyTheme(theme) {
+    if (theme === "dark") {
+      document.documentElement.setAttribute("data-theme", "dark");
+    } else {
+      document.documentElement.removeAttribute("data-theme");
+    }
+    try { localStorage.setItem("wedding-theme", theme); } catch (e) { /* ignore */ }
+  }
+
+  themeToggle.addEventListener("click", function () {
+    var isDark = document.documentElement.getAttribute("data-theme") === "dark";
+    applyTheme(isDark ? "light" : "dark");
+  });
+
+  (function initTheme() {
+    var saved = null;
+    try { saved = localStorage.getItem("wedding-theme"); } catch (e) { /* ignore */ }
+    applyTheme(saved === "dark" ? "dark" : "light");
+  })();
+
+  /* =========================================================
+     2. LANGUAGE TOGGLE
+     ========================================================= */
+  function applyLanguage(lang) {
+    var dict = translations[lang] || translations.en;
+    document.documentElement.lang = lang;
+    document.documentElement.dir = lang === "ar" ? "rtl" : "ltr";
+
+    document.querySelectorAll("[data-i18n]").forEach(function (el) {
+      var key = el.getAttribute("data-i18n");
+      if (dict[key]) el.textContent = dict[key];
+    });
+
+    document.querySelectorAll("[data-i18n-aria]").forEach(function (el) {
+      var key = el.getAttribute("data-i18n-aria");
+      if (dict[key]) el.setAttribute("aria-label", dict[key]);
+    });
+
+    document.getElementById("lang-en").classList.toggle("active", lang === "en");
+    document.getElementById("lang-ar").classList.toggle("active", lang === "ar");
+
+    try { localStorage.setItem("wedding-lang", lang); } catch (e) { /* ignore */ }
+  }
+
+  document.getElementById("lang-en").addEventListener("click", function () { applyLanguage("en"); });
+  document.getElementById("lang-ar").addEventListener("click", function () { applyLanguage("ar"); });
+
+  (function initLanguage() {
+    var saved = null;
+    try { saved = localStorage.getItem("wedding-lang"); } catch (e) { /* ignore */ }
+    var browserLang = (navigator.language || "en").toLowerCase().indexOf("ar") === 0 ? "ar" : "en";
+    applyLanguage(saved || browserLang);
+  })();
+
+  /* =========================================================
+     3. COUNTDOWN — target: Oct 31, 2026, 2:00 PM (guest-local time)
+     ========================================================= */
+  var WEDDING_DATE = new Date(2026, 9, 31, 14, 0, 0); // month is 0-indexed: 9 = October
+
+  function updateCountdown() {
+    var now = new Date();
+    var diff = WEDDING_DATE.getTime() - now.getTime();
+
+    var days = 0, hours = 0, mins = 0, secs = 0;
+    if (diff > 0) {
+      days = Math.floor(diff / (1000 * 60 * 60 * 24));
+      hours = Math.floor((diff / (1000 * 60 * 60)) % 24);
+      mins = Math.floor((diff / (1000 * 60)) % 60);
+      secs = Math.floor((diff / 1000) % 60);
+    }
+
+    var pad = function (n) { return String(n).padStart(2, "0"); };
+    document.getElementById("cd-days").textContent = pad(days);
+    document.getElementById("cd-hours").textContent = pad(hours);
+    document.getElementById("cd-mins").textContent = pad(mins);
+    document.getElementById("cd-secs").textContent = pad(secs);
+  }
+
+  updateCountdown();
+  setInterval(updateCountdown, 1000);
+
+  /* =========================================================
+     4. RSVP FORM (Formspree)
+     ========================================================= */
+  var form = document.getElementById("rsvp-form");
+  var statusEl = document.getElementById("rsvp-status");
+
+  function currentDict() {
+    return translations[document.documentElement.lang] || translations.en;
+  }
+
+  form.addEventListener("submit", function (e) {
+    e.preventDefault();
+    var dict = currentDict();
+    var actionUrl = form.getAttribute("action") || "";
+
+    if (!actionUrl || actionUrl.indexOf("YOUR_FORM_ID") !== -1) {
+      statusEl.textContent = dict["rsvp.notConfigured"];
+      return;
+    }
+
+    statusEl.textContent = dict["rsvp.sending"];
+
+    var data = new FormData(form);
+
+    fetch(actionUrl, {
+      method: "POST",
+      body: data,
+      headers: { Accept: "application/json" }
+    })
+      .then(function (response) {
+        if (response.ok) {
+          statusEl.textContent = dict["rsvp.success"];
+          form.reset();
+        } else {
+          statusEl.textContent = dict["rsvp.error"];
+        }
+      })
+      .catch(function () {
+        statusEl.textContent = dict["rsvp.error"];
+      });
+  });
+
+  /* =========================================================
+     5. WELCOME OVERLAY + BACKGROUND MUSIC
+     Browsers block audio-with-sound from autoplaying before any
+     user interaction, so the "Tap to Enter" button doubles as
+     the gesture that unlocks playback.
+     ========================================================= */
+  var overlay = document.getElementById("welcome-overlay");
+  var music = document.getElementById("bg-music");
+  var musicToggle = document.getElementById("music-toggle");
+
+  function enterSite(lang) {
+    if (lang) applyLanguage(lang);
+    overlay.classList.add("hidden");
+
+    music.load();
+    var playPromise = music.play();
+    if (playPromise && typeof playPromise.then === "function") {
+      playPromise
+        .then(function () {
+          musicToggle.hidden = false;
+          musicToggle.classList.add("playing");
+        })
+        .catch(function () {
+          // No song file yet, or browser blocked it — keep the toggle hidden.
+          musicToggle.hidden = true;
+        });
+    }
+  }
+
+  document.querySelectorAll(".lang-choice-card").forEach(function (card) {
+    card.addEventListener("click", function () {
+      enterSite(card.getAttribute("data-lang"));
+    });
+  });
+
+  musicToggle.addEventListener("click", function () {
+    if (music.paused) {
+      music.play();
+      musicToggle.classList.add("playing");
+    } else {
+      music.pause();
+      musicToggle.classList.remove("playing");
+    }
+  });
+
+  /* =========================================================
+     6. GALLERY FLOW
+     Duplicate the photo strip once so the CSS animation
+     (translateX 0 -> -50%) loops seamlessly, with no visible seam.
+     ========================================================= */
+  var galleryTrack = document.getElementById("gallery-track");
+  if (galleryTrack) {
+    Array.prototype.slice.call(galleryTrack.children).forEach(function (item) {
+      var clone = item.cloneNode(true);
+      clone.setAttribute("aria-hidden", "true");
+      galleryTrack.appendChild(clone);
+    });
+  }
+})();
+</script>
+</body>
+</html>
